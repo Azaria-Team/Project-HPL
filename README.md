@@ -1,4 +1,5 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/HPL-Team/Project-HPL/total?logo=Github&label=Total%20downloads)
+![Discord](https://github.com/HPL-Team/Project-HPL/assets/138273721/e8d66271-4700-4aa5-84e6-f000e9c2bd7f)
 # Project-HPL
 ![Discord](https://github.com/HPL-Team/Project-HPL/assets/138273721/e8d66271-4700-4aa5-84e6-f000e9c2bd7f)
 
