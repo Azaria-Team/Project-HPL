@@ -12,6 +12,6 @@ public class HPLLiquids {
         oxylite = new Liquid("oxylite", Color.valueOf("53ad99")) {{
             viscosity = 0.65f;
             temperature = 0.3f;
-        }};
+        }}; //test
     }
 }

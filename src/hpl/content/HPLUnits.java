@@ -42,13 +42,13 @@ public class HPLUnits {
             flying = true;
             mineSpeed = 8f;
             mineTier = 2;
-            buildSpeed = 0.9f;
+            buildSpeed = 0.4f;
             drag = 0.05f;
             speed = 3.3f;
             rotateSpeed = 17f;
             accel = 0.1f;
             itemCapacity = 50;
-            health = 290f;
+            health = 300f;
             engineSize = 4f;
             engineOffset = 11f;
             hitSize = 8f;
@@ -71,8 +71,8 @@ public class HPLUnits {
                             spawnUnit = new MissileUnitType("gyurza-missile"){{
                                 engineSize = 1.75f;
                                 engineLayer = Layer.effect;
-                                speed = 3f;
-                                maxRange = 15f;
+                                speed = 3.4f;
+                                maxRange = 16f;
                                 trailWidth = 1;
 
                                 lifetime = 60;
@@ -85,7 +85,7 @@ public class HPLUnits {
                                     mirror = false;
                                     reload = 1f;
                                     shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(30f, 10f){{
+                                    bullet = new ExplosionBulletType(75f, 15f){{
                                         shootEffect = Fx.massiveExplosion;
                                         buildingDamageMultiplier = 0.25f;
                                     }};
@@ -97,7 +97,7 @@ public class HPLUnits {
 
                     new RegionPart("-blade") {{
                         moveRot = -10;
-                        moves.add(new PartMove(PartProgress.reload, 2f, 1f, -5f));
+                        moves.add(new PartMove(PartProgress.reload, 0f, 1.5f, -5f));
                         progress = PartProgress.warmup;
                         mirror = true;
                     }});
@@ -108,7 +108,7 @@ public class HPLUnits {
             speed = 0.9f;
             drag = 0.12f;
             hitSize = 12f;
-            health = 350;
+            health = 420;
             accel = 0.2f;
             faceTarget = false;
             rotateSpeed = 4f;
@@ -120,17 +120,16 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
 
             weapons.add(new Weapon("hpl-vog-launcher") {{
-                reload = 30f;
+                reload = 90f;
                 shootY = 2f;
                 rotate = true;
                 x = 0;
                 y = -6;
                 mirror = false;
                 shootSound = Sounds.shootAlt;
-                bullet = new MissileBulletType(5f, 27, "hpl-vog") {{
+                bullet = new MissileBulletType(5f, 20, "hpl-vog") {{
                     backColor = HPLPal.vogPinkBack;
                     frontColor = HPLPal.forceBullet;
-                    homingPower = 0.02f;
                     width = 13f;
                     height = 15f;
                     hitSound = Sounds.explosion;
@@ -139,14 +138,17 @@ public class HPLUnits {
                     trailEffect = HPLFx.vogTrail;
                     trailRotation = true;
                     trailInterval = 0.5f;
-                    lifetime = 40f;
+                    lifetime = 35;
+
+                    splashDamage = 65f;
+                    splashDamageRadius = 30f;
                 }};
             }});
         }};
         glaucus = new UnitType("glaucus") {{
             speed = 0.72f;
             hitSize = 15f;
-            health = 900;
+            health = 1100;
             accel = 0.3f;
             drag = 0.04f;
 
@@ -174,7 +176,7 @@ public class HPLUnits {
                         shootCone = 360f;
 						shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(3f, 35) {{
+                        bullet = new AimBulletType(3f, 25) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
 							sprite = "hpl-dagger-missile";
@@ -193,15 +195,16 @@ public class HPLUnits {
                             trailRotation = true;
                             trailInterval = 0.5f;
                             lifetime = 200f;
-                            splashDamage = 15;
-                            splashDamageRadius = 15;
+
+                            splashDamage = 85;
+                            splashDamageRadius = 20;
                         }};
                     }},
                     new Weapon("hpl-plasma-pointer") {{
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 5;
+                        x = 6;
                         y = -2.3f;
                         mirror = true;
                         alternate = false;
@@ -210,7 +213,7 @@ public class HPLUnits {
                         shootCone = 360f;
 						shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(3f, 35) {{
+                        bullet = new AimBulletType(3f, 25) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
 							sprite = "hpl-dagger-missile";
@@ -229,8 +232,9 @@ public class HPLUnits {
                             trailRotation = true;
                             trailInterval = 0.5f;
                             lifetime = 200f;
-                            splashDamage = 15;
-                            splashDamageRadius = 15;
+
+                            splashDamage = 85;
+                            splashDamageRadius = 20;
                         }};
                     }},
                     new Weapon("hpl-vog-automatic-launcher") {{
@@ -244,10 +248,9 @@ public class HPLUnits {
                         shootSound = Sounds.shootAlt;
                         shoot.shots = 4;
                         shoot.shotDelay = 6f;
-                        bullet = new MissileBulletType (6f, 15, "hpl-vog") {{
+                        bullet = new MissileBulletType (6f, 10, "hpl-vog") {{
                             backColor = HPLPal.vogPinkBack;
-                            frontColor = HPLPal.vogPink;
-                            homingPower = 0.02f;
+                            frontColor = HPLPal.forceBullet;
                             width = 13f;
                             height = 15f;
                             hitSound = Sounds.explosion;
@@ -263,7 +266,8 @@ public class HPLUnits {
                             {
                                 progress = PartProgress.recoil;
                                 mirror = false;
-                                under = false;
+                                under = true;
+                                top = true;
                                 moveX = 0f;
                                 moveY = -3f;
                                 moveRot = 0f;

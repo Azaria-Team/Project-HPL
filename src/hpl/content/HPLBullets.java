@@ -10,7 +10,7 @@ public class HPLBullets {
             none, forceBullet;
 
     public static void load() {
-        forceBullet = new BasicBulletType(6f, 40f){{
+        forceBullet = new BasicBulletType(6f, 10f){{
            sprite = "hpl-dagger-missile";
            trailInterval = 0.5f;
            trailEffect = HPLFx.forceBulletTrail;
@@ -25,15 +25,15 @@ public class HPLBullets {
            collidesGround = true;
            collidesAir = true;
 
+            trailColor = HPLPal.vogPinkBack;
             backColor = HPLPal.vogPinkBack;
-            frontColor = HPLPal.vogPink;
-            trailColor = HPLPal.forceBulletBack;
+            frontColor = HPLPal.forceBullet;
 
            trailLength = 18;
            trailWidth = 1.7f;
 
-            splashDamage = 10f;
-            splashDamageRadius = 10f;
+            splashDamage = 35f;
+            splashDamageRadius = 35f;
         }};
     }
 }

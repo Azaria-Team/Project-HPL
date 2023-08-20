@@ -321,7 +321,7 @@ public class HPLBlocks {
             requirements(Category.power, with(HPLItems.fors, 40));
             researchCost = with(HPLItems.fors, 65);
 
-            powerProduction = 0.5f;
+            powerProduction = 0.5f / 3;
             displayEfficiency = true;
             size = 2;
             floating = true;
@@ -360,37 +360,6 @@ public class HPLBlocks {
         }};
         //endregion production
         //region drills
-        waveDrill = new HPLBurstDrill("wave-drill"){{
-            requirements(Category.production, with(HPLItems.fors, 20));
-            drillTime = 60f * 12f;
-            size = 3;
-            hasPower = true;
-            tier = 2;
-            //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
-            shake = 3f;
-            itemCapacity = 20;
-            researchCost = with(HPLItems.fors, 5);
-
-            drillMultipliers.put(Items.beryllium, 2.5f);
-
-            fogRadius = 4;
-
-            consumePower(2f / 60f);
-            drawer = new DrawMulti(
-                    new DrawDefault(),
-                    new DrawDrillPart(11f / 4f){{
-                        shadowOffset = 1f;
-                        baseOffset = 4f / 4f;
-                        layer = Layer.blockOver;
-                        angleOffset = 135;
-                        drawPlan = false;
-
-                    }},
-                    new DrawRegion("-top"){{
-                        layer = Layer.blockOver + 0.1f;
-                    }}
-            );
-        }};
         //Soon
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HPLItems.fors, 20));
@@ -425,7 +394,7 @@ public class HPLBlocks {
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
-            outputItem = new ItemStack(HPLItems.khylid, 2);
+            outputItem = new ItemStack(HPLItems.khylid, 4);
             craftTime = 160;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
@@ -442,6 +411,37 @@ public class HPLBlocks {
                     }}
             );
             squareSprite = false;
+        }};
+        waveDrill = new HPLBurstDrill("wave-drill"){{
+            requirements(Category.production, with(HPLItems.fors, 20));
+            drillTime = 60f * 12f;
+            size = 3;
+            hasPower = true;
+            tier = 2;
+            //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
+            shake = 3f;
+            itemCapacity = 20;
+            researchCost = with(HPLItems.fors, 5);
+
+            drillMultipliers.put(Items.beryllium, 2.5f);
+
+            fogRadius = 4;
+
+            consumePower(2f / 60f);
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawDrillPart(11f / 4f){{
+                        shadowOffset = 1f;
+                        baseOffset = 4f / 4f;
+                        layer = Layer.blockOver;
+                        angleOffset = 135;
+                        drawPlan = false;
+
+                    }},
+                    new DrawRegion("-top"){{
+                        layer = Layer.blockOver + 0.1f;
+                    }}
+            );
         }};
         //endregion drills
         //region distribution
@@ -486,24 +486,24 @@ public class HPLBlocks {
         forsWall = new Wall("fors-wall") {{
             requirements(Category.defense, with(HPLItems.fors, 6));
             researchCost = with(HPLItems.fors, 100);
-            health = 120 * 4;
-            armor = 2f;
+            health = 160 * 4;
+            armor = 3f;
             buildCostMultiplier = 8f;
         }};
 
         forsWallLarge = new Wall("fors-wall-large") {{
             requirements (Category.defense, with(HPLItems.fors, 24));
             researchCost = with(HPLItems.fors, 450);
-            health = 120 * 16;
+            health = 160 * 16;
             size = 2;
             armor = 3f;
             buildCostMultiplier = 8f;
         }};
 
         forceTurret = new ItemTurret("force"){{
-            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 30));
+            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 25));
             researchCost = with(HPLItems.fors, 150, HPLItems.khylid, 70);
-            health = 600;
+            health = 700;
             shootEffect = HPLFx.shootForce;
             smokeEffect = HPLFx.shootSmokeForce;
             reload = 70f;
@@ -556,7 +556,7 @@ public class HPLBlocks {
 
             isFirstTier = true;
             unitType = HPLUnits.gyurza;
-            health = 2000;
+            health = 2500;
             itemCapacity = 2500;
             size = 3;
             armor = 2f;
