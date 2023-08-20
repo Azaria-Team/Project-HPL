@@ -1,8 +1,8 @@
-displayName: "Project HPL"
+displayName: "Project HLP"
 name: "hpl"
 author: "HPL Team"
 main: "hpl.HPL"
-description: "Java mod that adds a new campaign"
-version: 0.1A
-minGameVersion: 145
+description: "A Mindustry Java mod that contains a full of content planet. This is the beta version so it may not display the final version of the project."
+version: 0.2 Beta
+minGameVersion: 141
 java: true
