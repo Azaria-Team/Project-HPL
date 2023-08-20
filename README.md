@@ -1,4 +1,4 @@
-![Discord](https://img.shields.io/discord/1083064535117725726?logo=discord&label=Project%20HPL&link=https%3A%2F%2Fdiscord.gg%2FH9d7ZACXTr&style=for-the-badge)
+[![Discord](https://img.shields.io/discord/1011940744774303795.svg?color=7289da&logo=discord&label=HPL&style=for-the-badge)](https://discord.gg/H9d7ZACXTr)
 ![GitHub all releases](https://img.shields.io/github/downloads/HPL-Team/Project-HPL/total?logo=Github&label=Total%20downloads&include_prereleases&style=for-the-badge)
 ![Download](https://img.shields.io/github/v/release/HPL-Team/Project-HPL?color=6aa84f&include_prereleases&label=Latest%20version&logo=github&logoColor=white&style=for-the-badge)
 # Project-HPL
