@@ -1,7 +1,6 @@
 [![Discord](https://img.shields.io/discord/1011940744774303795.svg?color=7289da&logo=discord&label=HPL&style=for-the-badge)](https://discord.gg/H9d7ZACXTr)
-![GitHub all releases](https://img.shields.io/github/downloads/HPL-Team/Project-HPL/total?logo=Github&label=Total%20downloads&include_prereleases&style=for-the-badge)
-[![Download](https://img.shields.io/github/v/release/HPL-Team/Project-HPL?color=6aa84f&include_prereleases&label=Latest%20version&logo=github&logoColor=white&style=for-the-badge)](https://github.com/HPL-Team/Project-HPL/releases)
-
+[![Download](https://img.shields.io/github/v/release/HPL-Team/Project-HPL?color=6aa84f&include_prereleases&label=Latest%20version&logo=github&logoColor=white&style=for-the-badge)](https://github.com/HPL-Team/Project-HPL/releases)![GitHub all releases](https://img.shields.io/github/downloads/HPL-Team/Project-HPL/total?color=ED5D3F&logo=Github&label=Total%20downloads&include_prereleases&style=for-the-badge)
+[![Stars](https://img.shields.io/github/stars/HPL-Team/Project-HPL?color=F7D747&label=⭐️%20Please%20Star%20Project-HPL%21&style=for-the-badge)](https://github.com/HPL-Team/Project-HPL)
 # Project-HPL
 ![hpl-banner](https://github.com/HPL-Team/Project-HPL/assets/90574933/e5ba46bc-6b27-492d-84ec-975e654803d0)
 
