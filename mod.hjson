@@ -2,7 +2,7 @@ displayName: "Project HLP"
 name: "hpl"
 author: "HPL Team"
 main: "hpl.HPL"
-description: "A Mindustry Java mod."
+description: "Java mod that adds a new campaign"
 version: 0.1A
-minGameVersion: 141
+minGameVersion: 145
 java: true
