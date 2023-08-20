@@ -20,8 +20,7 @@ public class HPL extends Mod{
             Time.runTask(10f, () -> {
 
                 BaseDialog dialog = new BaseDialog("ATTENTION!");
-                dialog.cont.add("THIS IS A BETA VERSION OF THE MOD WHICH MAY NOT DISPLAY THE FINAL QUALITY OF THE PROJECT\nTHIS MOD CONTAINS \"DIFFERENT\" CONTENT PLEASE READ THE DESCRIPTION OF THE BLOCKS, ITEMS, UNITS ETC.").row();
-
+                dialog.cont.add("THIS IS A BETA VERSION OF THE MOD WHICH MAY NOT DISPLAY THE FINAL QUALITY OF THE PROJECT").row();
                 dialog.cont.image(Core.atlas.find("hpl-fors")).pad(20f).row();
                 dialog.cont.button("OK", dialog::hide).size(100f, 50f);
                 dialog.show();
