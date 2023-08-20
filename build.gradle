@@ -8,6 +8,7 @@ sourceSets.main.java.srcDirs = ["src"]
 
 repositories{
     mavenCentral()
+    maven { url 'https://maven.xpdustry.com/anuken' }
     maven{ url 'https://www.jitpack.io' }
 }
 
