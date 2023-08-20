@@ -1,7 +1,7 @@
 ![Discord](https://img.shields.io/discord/1083064535117725726?logo=discord&label=Project%20HPL&link=https%3A%2F%2Fdiscord.gg%2FH9d7ZACXTr)
 ![GitHub all releases](https://img.shields.io/github/downloads/HPL-Team/Project-HPL/total?logo=Github&label=Total%20downloads)
 # Project-HPL
-![Discord](https://github.com/HPL-Team/Project-HPL/assets/138273721/e8d66271-4700-4aa5-84e6-f000e9c2bd7f)
+![hpl-banner](https://github.com/HPL-Team/Project-HPL/assets/90574933/e5ba46bc-6b27-492d-84ec-975e654803d0)
 
 # PC Build Guide
 
