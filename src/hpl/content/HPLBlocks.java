@@ -235,7 +235,7 @@ public class HPLBlocks {
             variants = 3;
             darkSerrid.asFloor().wall = this;
         }};
-        darkSerridBoulder = new StaticWall("dark-serrid-boulder") {{
+        darkSerridBoulder = new Prop("dark-serrid-boulder") {{
             variants = 3;
             darkSerrid.asFloor().decoration = this;
         }};
@@ -517,7 +517,7 @@ public class HPLBlocks {
             shootCone = 10f;
             rotateSpeed = 2.4f;
 
-            shootSound = Sounds.cannon;
+            shootSound = Sounds.dullExplosion;
             squareSprite = false;
             itemCapacity = 20;
 
