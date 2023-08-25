@@ -49,8 +49,8 @@ public class HPLUnits {
             accel = 0.1f;
             itemCapacity = 50;
             health = 300f;
-            engineSize = 4f;
-            engineOffset = 11f;
+            engineSize = 3f;
+            engineOffset = 9.5f;
             hitSize = 8f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
@@ -109,6 +109,7 @@ public class HPLUnits {
             drag = 0.12f;
             hitSize = 12f;
             health = 420;
+            armor = 2;
             accel = 0.2f;
             faceTarget = false;
             rotateSpeed = 4f;
@@ -149,6 +150,7 @@ public class HPLUnits {
             speed = 0.72f;
             hitSize = 15f;
             health = 1100;
+	    armor = 8;
             accel = 0.3f;
             drag = 0.04f;
 
@@ -282,6 +284,7 @@ public class HPLUnits {
             drag = 0.9f;
             hitSize = 17f;
             health = 3200;
+            armor = 14;
             accel = 0.35f;
             faceTarget = false;
             rotateSpeed = 3f;
