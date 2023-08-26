@@ -170,7 +170,7 @@ public class HPLBlocks {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
-            attributes.set(HPLAttribute.mainlheatattr, 0.25f);
+            attributes.set(HPLAttribute.mainlheatattr, 0.25f*2/3);
         }};
         deepOxylite = new Floor("deep-oxylite") {{
             variants = 4;
@@ -179,7 +179,8 @@ public class HPLBlocks {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
-			drownTime = 140f;
+            attributes.set(HPLAttribute.mainlheatattr, 0.25f);
+	    drownTime = 140f;
         }};
         serridOxylite = new Floor("serrid-oxylite") {{  
             variants = 4;
@@ -188,6 +189,7 @@ public class HPLBlocks {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
+            attributes.set(HPLAttribute.mainlheatattr, 0.25f*1/3);
         }};
         darkSerridOxylite = new Floor("dark-serrid-oxylite") {{
             variants = 4;
@@ -196,6 +198,7 @@ public class HPLBlocks {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
+            attributes.set(HPLAttribute.mainlheatattr, 0.25f*1/3);
         }};
         //endregion sea biome
 
@@ -273,6 +276,18 @@ public class HPLBlocks {
         }};
         khylidOre = new ModOverlayFloor(("khylid-ore")) {{
             parent = blendGroup = oxylite;
+            variants = 2;
+            cacheLayer = CacheLayer.water;
+            attributes.set(HPLAttribute.khylidattr, 1f);
+        }};
+        serridKhylidOre = new ModOverlayFloor(("serrid-khylid-ore")) {{
+            parent = blendGroup = serridOxylite;
+            variants = 2;
+            cacheLayer = CacheLayer.water;
+            attributes.set(HPLAttribute.khylidattr, 1f);
+        }};
+        darkSerridKhylidOre = new ModOverlayFloor(("dark-serrid-khylid-ore")) {{
+            parent = blendGroup = darkSerridOxylite;
             variants = 2;
             cacheLayer = CacheLayer.water;
             attributes.set(HPLAttribute.khylidattr, 1f);
