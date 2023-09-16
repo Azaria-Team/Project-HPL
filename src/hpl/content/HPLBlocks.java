@@ -122,6 +122,7 @@ public class HPLBlocks {
         firWall = new StaticWall("fir-wall") {{
             variants = 3;
             fir.asFloor().wall = this;
+	    mapColor = Color.valueOf("3f4f45");
         }};
         firBoulder = new Prop("fir-boulder") {{
             variants = 3;
