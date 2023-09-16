@@ -26,15 +26,11 @@ jobs:
 
           java-version: 17
 
-      - name: Make gradlew executable
-
-        run: chmod +x ./gradlew
-
       - name: Build mod jar
-
         run: |
-
-          ./gradlew deploy -Pcommit=$(git rev-parse --short "$GITHUB_SHA")
+         sed -i 's/\r//' ./gradlew
+         chmod +x ./gradlew
+         ./gradlew deploy -Pcommit=$(git rev-parse --short "$GITHUB_SHA")
 
       - name: Upload built jar file
 
