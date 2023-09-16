@@ -39,6 +39,7 @@ import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.draw.*;
 import mindustry.world.meta.BlockGroup;
+import arc.graphics.Color;
 
 import static mindustry.type.ItemStack.with;
 
