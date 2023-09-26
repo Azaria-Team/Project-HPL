@@ -62,10 +62,9 @@ public class HPLPlanets {
 
             launchCapacityMultiplier = 0.5f;
             sectorSeed = 2;
-            tidalLock = true;
-            orbitTime = 2 * 60f * 60f * 60f * 60f;
-            rotateTime = 17 * 60f * 60f * 60f;
-
+            orbitTime = 2 * 60f * 60f;
+            rotateTime = 34f * 60f;
+            orbitSpacing = 10;
 
 
             allowLaunchToNumbered = false;
