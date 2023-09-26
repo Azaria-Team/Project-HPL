@@ -3,6 +3,6 @@ name: "hpl"
 author: "HPL Team"
 main: "hpl.HPL"
 description: "A Mindustry Java mod that contains a full of content planet. This is the beta version so it may not display the final version of the project."
-version: 0.1.3A
-minGameVersion: 141
+version: 0.1.4A
+minGameVersion: 146
 java: true
