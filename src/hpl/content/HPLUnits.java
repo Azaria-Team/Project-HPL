@@ -35,7 +35,6 @@ public class HPLUnits {
     //bigKaboom, torpedo
     // Steal from Progressed Material which stole from Unlimited-Armament-Works which stole from  Endless Rusting which stole from Progressed Materials in the past which stole from BetaMindy
     private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
-            prov(DroneUnitEntity.class, DroneUnitEntity::new),
             prov(StriCopterUnitEntity.class, StriCopterUnitEntity::new)
     };
 
@@ -82,7 +81,7 @@ public class HPLUnits {
     public static <T extends Entityc> int classID(Class<T> type) {
         return idMap.get(type, -1);
     }
-    public static void load()
+    public static void load(){
     setupID();{
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
