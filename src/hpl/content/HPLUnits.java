@@ -1,6 +1,11 @@
 package hpl.content;
 
+import arc.func.Prov;
+import arc.struct.ObjectIntMap;
+import arc.struct.ObjectMap;
 import hpl.entities.bullets.AimBulletType;
+import hpl.entities.entity.DroneUnitEntity;
+import hpl.entities.entity.StriCopterUnitEntity;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.graphics.HPLPal;
 import hpl.world.draw.Blade;
@@ -12,9 +17,7 @@ import mindustry.entities.bullet.ExplosionBulletType;
 import mindustry.entities.bullet.MissileBulletType;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
-import mindustry.gen.Sounds;
-import mindustry.gen.UnitEntity;
-import mindustry.gen.UnitWaterMove;
+import mindustry.gen.*;
 import mindustry.graphics.Layer;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
@@ -30,7 +33,57 @@ public class HPLUnits {
     unmaker;
     //off the tree
     //bigKaboom, torpedo
-    public static void load() {
+    // Steal from Progressed Material which stole from Unlimited-Armament-Works which stole from  Endless Rusting which stole from Progressed Materials in the past which stole from BetaMindy
+    private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
+            prov(DroneUnitEntity.class, DroneUnitEntity::new),
+            prov(StriCopterUnitEntity.class, StriCopterUnitEntity::new)
+    };
+
+    private static final ObjectIntMap<Class<? extends Entityc>> idMap = new ObjectIntMap<>();
+
+    /**
+     * Internal function to flatmap {@code Class -> Prov} into an {@link ObjectMap.Entry}.
+     * @author GlennFolker
+     */
+    private static <T extends Entityc> ObjectMap.Entry<Class<T>, Prov<T>> prov(Class<T> type, Prov<T> prov) {
+        ObjectMap.Entry<Class<T>, Prov<T>> entry = new ObjectMap.Entry<>();
+        entry.key = type;
+        entry.value = prov;
+        return entry;
+    }
+
+    /**
+     * Setups all entity IDs and maps them into {@link EntityMapping}.
+     * <p>
+     * Put this inside load()
+     * </p>
+     * @author GlennFolker
+     */
+    private static void setupID() {
+        for (
+                int i = 0,
+                j = 0,
+                len = EntityMapping.idMap.length;
+                i < len;
+                i++
+        ) {
+            if (EntityMapping.idMap[i] == null) {
+                idMap.put(types[j].key, i);
+                EntityMapping.idMap[i] = types[j].value;
+                if (++j >= types.length) break;
+            }
+        }
+    }
+
+    /**
+     * Retrieves the class ID for a certain entity type.
+     * @author GlennFolker
+     */
+    public static <T extends Entityc> int classID(Class<T> type) {
+        return idMap.get(type, -1);
+    }
+    public static void load()
+    setupID();{
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
