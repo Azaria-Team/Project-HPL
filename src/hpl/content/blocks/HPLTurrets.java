@@ -142,11 +142,13 @@ public class HPLTurrets {
                         }});
             }};
         }};
-
+/*
         raze = new PowerTurret("raze") {{
             size = 3;
             requirements(Category.turret, with(HPLItems.superdenseAlloy, 300));
         }};
 
+
+ */
     }
 }

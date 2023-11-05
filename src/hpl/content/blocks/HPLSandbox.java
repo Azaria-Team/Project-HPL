@@ -28,6 +28,7 @@ public class HPLSandbox {
             size = 2;
             placeableLiquid = true;
         }};
+        /*
         testBlock = new GenericCrafter("test-block") {{
             requirements(Category.crafting, with(HPLItems.fors, 50, HPLItems.khylid, 20));
             outputItem = new ItemStack(HPLItems.craside, 1);
@@ -45,5 +46,7 @@ public class HPLSandbox {
                     new DrawCrasideSmelt()
             );
         }};
+
+         */
     }
 }

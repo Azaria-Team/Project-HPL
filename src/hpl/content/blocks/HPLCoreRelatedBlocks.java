@@ -43,6 +43,8 @@ public class HPLCoreRelatedBlocks {
         complexSurprise = new NavalMine("complex-surprise") {{
             size = 2;
             floating = true;
+            placeableOn = false;
+            placeableLiquid = true;
             outlineColor = HPLPal.aureliaOutline;
             requirements(Category.effect, with(HPLItems.ognium, 50, HPLItems.ferbium, 35));
             hasShadow = false;
