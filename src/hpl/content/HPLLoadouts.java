@@ -15,7 +15,6 @@ public class HPLLoadouts{
        // basicLegion = Schematics.readBase64("bXNjaAF4nGNgZmBmZmDJS8xNZeBOSizOTPZJTc/Mz2PgTkktTi7KLCgBcRgY2HISk1JzihmYomMZGfgzCnJ0k/OLUnVzIIoZGBhBiJGBGQBPIhPX");
         basicLegion = loadSchem("hpl-coreLegion");
 
-        basicLegion = Schematics.readBase64("bXNjaAF4nGNgZmBmZmDJS8xNZWBJSixOZeBOSS1OLsosKMnMz2NgYGDLSUxKzSlmYIqOZWTgzyjI0U3OL0rVzUlNh8gzghCQAACQQREI");
     }
 
         private static Schematic loadSchem(String name) {
