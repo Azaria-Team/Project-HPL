@@ -61,7 +61,7 @@ public class HPLCoreRelatedBlocks {
             beamWidth = 1f;
             powerUse = 1f;
             size= 2;
-            researchCostMultiplier = 0.9f;
+            researchCostMultiplier = 0.5f;
         }};
     }
 }

@@ -8,6 +8,6 @@ public class HPLLoadouts{
             basicLegion;
 
     public static void load(){
-        basicLegion = Schematics.readBase64("bXNjaAF4nGNgZmBmZmDJS8xNZeBOSizOTPZJTc/Mz2PgTkktTi7KLCgBcRgY2HISk1JzihmYomMZGfgzCnJ0k/OLUnVzIIoZGBhBiJGBGQBPIhPX");
+        basicLegion = Schematics.readBase64("bXNjaAF4nGNgZmBmZmDJS8xNZeBOzi9K1c1JTc/Mz2PgTkktTi7KLCgBcRgY2HISk1JzihmYomMZGfgzCnJ0kRUzMDCCECMDMwBMNhPL");
     }
 }
