@@ -104,9 +104,7 @@ public class HPLTechTree {
             //endregion blocks
             //region units
             node(vectorFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {
-                node(vector, () -> {
-
-                });
+                node(vector);
             });
             //endregion units
 

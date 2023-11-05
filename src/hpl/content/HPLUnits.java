@@ -576,6 +576,7 @@ public class HPLUnits {
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
 
+            researchCostMultiplier = 0f;
             shadowElevation = 0.1f;
             hover = true;
             rotors.add(
