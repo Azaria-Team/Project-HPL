@@ -159,3 +159,4 @@ core/build/
 modsDirectories.txt
 otherFiles/
 tools/build/
+.kateproject

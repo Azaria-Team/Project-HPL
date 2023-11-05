@@ -8,10 +8,12 @@ import arc.math.Mathf;
 import arc.math.Rand;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
+import arc.util.Time;
 import hpl.graphics.HPLPal;
 import mindustry.core.Renderer;
 import mindustry.entities.Effect;
 import mindustry.graphics.Drawf;
+import mindustry.graphics.Layer;
 
 import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;
@@ -32,8 +34,8 @@ public class HPLFx {
 
     smokeEvaporatorSmall = new Effect(50, e -> {
         color(Color.white, e.fin());
-        randLenVectors(e.id, 3, 2f + 10f * e.finpow(), (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.5f);
+        randLenVectors(e.id, 3, 2f + 8f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.2f);
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
     }),
@@ -45,7 +47,19 @@ public class HPLFx {
         });
     }),
 
-    explosionSmall = new Effect(30, e -> {
+    crasideBrewerSmoke = new Effect(120, e -> {
+        color(HPLPal.craside, HPLPal.craside2, e.fin());
+        randLenVectors(e.id, 10, 1f + 6f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2 + 0.1f);
+            Fill.circle(e.x + x / 0.9f, e.y + y / 3f, e.fout());
+        });
+        randLenVectors(e.id, 8, 1f + 10f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 4 + 0.1f);
+            Fill.circle(e.x + x / 0.9f, e.y + y / 6f, e.fout());
+        });
+    }).layer(Layer.block + 0.05f),
+
+    hitExplosion = new Effect(30, e -> {
         color(HPLPal.vogPink);
         e.scaled(7, i -> {
             stroke(3f * i.fout());
@@ -82,6 +96,97 @@ public class HPLFx {
         });
     }),
 
+    blueHitExplosion1 = new Effect(30, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(7, i -> {
+            stroke(3f * i.fout());
+            Lines.square(e.x, e.y, 3f + i.fin() * 10f, e.rotation * Mathf.random(20) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet);
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 8, 1f + 23f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 3f);
+        });
+    }),
+
+    smallestBlueExplosion= new Effect(20, e -> {
+        color(HPLPal.droneBullet);
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(0.50f * e.fout());
+
+        randLenVectors(e.id + 1, 2, 1f + 5 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 0.5f + e.fout() * 1f);
+        });
+    }),
+
+
+    smallBlueExplosion= new Effect(20, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(8, i -> {
+            stroke(2f * i.fout());
+            Lines.square(e.x, e.y, 2f + i.fin() * 5f, e.rotation * Mathf.random(20) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 4, 1f + 16 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
+        });
+    }),
+
+    blueHitExplosionNormal = new Effect(30, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(10, i -> {
+            stroke(3f * i.fout());
+            Lines.square(e.x, e.y, 5f + i.fin() * 15f, e.rotation * Mathf.random(30) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet);
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 3, 8, 3f + 25f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 4f);
+        });
+    }),
+
+    blueExplosionNormal = new Effect(20, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(10, i -> {
+            stroke(2f * i.fout());
+            Lines.square(e.x, e.y, 3f + i.fin() * 8f, e.rotation * Mathf.random(20) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(2f * e.fout());
+
+        randLenVectors(e.id + 1, 6, 2f + 19
+                * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
+        });
+    }),
+
+    smallGreenExplosion = new Effect(20, e -> {
+        color(HPLPal.unmakerColor);
+        e.scaled(10, i -> {
+            stroke(2f * i.fout());
+        });
+
+        color(HPLPal.unmakerColor, Color.white, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 10, 1f + 15 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 0.5f + e.fout() * 1.5f);
+        });
+    }),
+
     vogTrail = new Effect(15, e -> {
         color(HPLPal.vogPink, HPLPal.vogPinkBack, e.fin());
         stroke(0.3f + e.fout() * 0.7f);
@@ -101,6 +206,11 @@ public class HPLFx {
             Fill.circle(e.x + x, e.y + y, 0.30f + e.fout() * 1.1f);
         });
     }),
+
+    unmakerBulletTrail = new Effect(50, e -> {
+        color(HPLPal.unmakerColor);
+        Fill.circle(e.x, e.y, e.rotation * e.fout());
+    }).layer(Layer.bullet - 0.001f), //below bullets
 
     shootForce = new Effect(10, e -> {
         color(HPLPal.vogPink, e.fin());
@@ -161,6 +271,39 @@ public class HPLFx {
         });
 
         color(HPLPal.vogPink, HPLPal.vogPinkBack, Color.pink, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 10, 1f + 30f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 3f);
+        });
+    }),
+
+    hornBulletHit = new Effect(30, e -> {
+        color(HPLPal.craside);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(HPLPal.craside);
+
+        randLenVectors(e.id, 10, 3f + 20f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.7f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+
+        color(HPLPal.craside, HPLPal.craside2, Color.orange, e.fin());
+        stroke(1.5f * e.fout());
+    }),
+
+    hornBulletDespawn = new Effect(30, e -> {
+        color(HPLPal.craside);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(HPLPal.craside, HPLPal.craside2, Color.orange, e.fin());
         stroke(1.5f * e.fout());
 
         randLenVectors(e.id + 1, 10, 1f + 30f * e.finpow(), (x, y) -> {

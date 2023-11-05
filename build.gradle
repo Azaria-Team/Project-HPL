@@ -2,7 +2,7 @@ apply plugin: "java"
 version '1.0'
 
 targetCompatibility = 8
-sourceCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
 
 sourceSets.main.java.srcDirs = ["src"]
 
@@ -13,10 +13,10 @@ repositories{
 }
 
 ext{
-        //the build number that this mod is made for
-        mindustryVersion = 'v145'
-        jabelVersion = "93fde537c7"
-        sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
+    //the build number that this mod is made for
+    mindustryVersion = 'v146'
+    jabelVersion = "93fde537c7"
+    sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
 }
 
 //java 8 backwards compatibility flag
@@ -64,7 +64,7 @@ task jarAndroid{
 
         //dex and desugar files - this requires d8 in your PATH
         "d8 $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
-            .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
+                .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
     }
 }
 

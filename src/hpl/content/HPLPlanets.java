@@ -1,11 +1,16 @@
 package hpl.content;
 
 import arc.graphics.Color;
+import hpl.content.HPLBlocks.*;
+import hpl.content.blocks.HPLCoreRelatedBlocks;
 import hpl.maps.generators.AurionaPlanetGenerator;
 import mindustry.content.*;
-import mindustry.game.Team;
 import mindustry.graphics.g3d.*;
 import mindustry.type.*;
+
+import static hpl.content.HPLItems.aurionaItems;
+import static mindustry.content.Planets.erekir;
+import static mindustry.content.Planets.serpulo;
 
 public class HPLPlanets {
     public static Planet aStar, bStar, auriona;
@@ -53,44 +58,49 @@ public class HPLPlanets {
 
         auriona = new Planet("auriona", aStar, 1.2f, 3){{
             generator = new AurionaPlanetGenerator();
-            meshLoader = () -> new HexMesh(this, 6);
+            meshLoader = () -> new HexMesh(this, 7);
             cloudMeshLoader = () -> new MultiMesh( // 81ffd7 old color > 5de7a3
-                    new HexSkyMesh(this, 11, 0.25f, 0.14f, 5, Color.valueOf("5de7a3").a(0.75f), 2, 0.45f, 0.87f, 0.38f),
-                    new HexSkyMesh(this, 2, 0.6f, 0.17f, 5, Color.valueOf("c1f4e4").a(0.75f), 2, 0.45f, 1f, 0.43f)
+                    new HexSkyMesh(this, 11, 0.25f, 0.14f, 6, Color.valueOf("5de7a3").a(0.75f), 2, 0.45f, 0.87f, 0.38f),
+                    new HexSkyMesh(this, 2, 0.6f, 0.17f, 6, Color.valueOf("c1f4e4").a(0.75f), 2, 0.45f, 1f, 0.43f)
             );
 
             launchCapacityMultiplier = 0.5f;
             sectorSeed = 2;
             orbitTime = 2 * 60f * 60f;
-            rotateTime = 44f * 60f;
+            rotateTime = 34f * 60f;
             orbitSpacing = 10;
-
 
             allowLaunchToNumbered = false;
             allowWaves = true;
             allowWaveSimulation = true;
             allowSectorInvasion = true;
-            allowLaunchSchematics = true;
-            enemyCoreSpawnReplace = true;
-            allowLaunchLoadout = true;
+            allowLaunchSchematics = false;
             iconColor = Color.valueOf("24b95a");
             atmosphereColor = Color.valueOf("24b95a");
-            defaultCore = HPLBlocks.coreLegion;
+			defaultCore = HPLCoreRelatedBlocks.coreLegion;
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
             startSector = 15;
             orbitRadius = 60f;
+            clearSectorOnLose = true;
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("24b95a");
-            hiddenItems.addAll(Items.erekirItems).addAll(Items.serpuloItems).removeAll(HPLItems.aurionaItems);
+            serpulo.hiddenItems.addAll(aurionaItems).removeAll(Items.serpuloItems);
+            erekir.hiddenItems.addAll(aurionaItems).removeAll(Items.erekirItems);
+            itemWhitelist = aurionaItems;
+           // hiddenItems.addAll(Items.erekirItems).removeAll(aurionaItems);
+          //  hiddenItems.addAll(Items.serpuloItems).removeAll(aurionaItems);
+            //hiddenItems.addAll(Items.serpuloItems).addAll(Items.erekirItems).addAll(Items.erekirOnlyItems).removeAll(aurionaItems);
             ruleSetter = r -> {
-                r.waveTeam = Team.crux;
+                r.waveTeam = HPLTeam.testteam;
                 r.placeRangeCheck = false;
                 r.showSpawns = true;
                 r.fog = true;
                 r.staticFog = true;
                 r.lighting = true;
                 r.coreDestroyClear = true;
+                r.onlyDepositCore = false;
+                unlockedOnLand.add(HPLCoreRelatedBlocks.coreLegion);
             };
         }};
     }

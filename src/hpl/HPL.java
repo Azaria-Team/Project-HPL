@@ -4,34 +4,81 @@ import arc.Core;
 import arc.Events;
 import arc.util.Log;
 import arc.util.Time;
+import hpl.content.blocks.HPLCoreRelatedBlocks;
 import hpl.utils.ManyPlanetSystems;
+import hpl.utils.Utils;
 import mindustry.game.EventType;
 import mindustry.mod.*;
-import mindustry.type.SectorPreset;
 import mindustry.ui.dialogs.BaseDialog;
 import hpl.content.*;
 
+import static mindustry.Vars.*;
+
 public class HPL extends Mod{
+    private static boolean show = false;
+    public static String text(String str){
+        return Core.bundle.format(str);
+    }
 
-    public HPL(){
-        Log.info("Loaded ExampleJavaMod constructor.");
+    public static void dialog(){
+        if(!mobile) {
 
-        Events.on(EventType.ClientLoadEvent.class, e -> {
-            Time.runTask(10f, () -> {
+            BaseDialog dialog = new BaseDialog("Project HPL") {
+                private float leave = 4f * 60;
+                private boolean canClose = false;
 
-                BaseDialog dialog = new BaseDialog("ATTENTION!");
-                dialog.cont.add("THIS IS A BETA VERSION OF THE MOD WHICH MAY NOT DISPLAY THE FINAL QUALITY OF THE PROJECT").row();
-                dialog.cont.image(Core.atlas.find("hpl-fors")).pad(20f).row();
-                dialog.cont.button("OK", dialog::hide).size(100f, 50f);
-                dialog.show();
-            });
-        });
+                {
+                    update(() -> {
+                        leave -= Time.delta;
+                        if (leave < 0 && !canClose) {
+                            canClose = true;
+                        }
+                    });
+                    //cont.add("m-project-hpl").row();
+                    cont.image(Core.atlas.find("hpl-title")).pad(3f).height(70).width(700).row();
+                    cont.add(text("m-attention")).row();
+                    //cont.add(Core.bundle.format("h.name")).row();
+                    cont.add(Core.bundle.format("m.description")).row();
+                    buttons.check(text("m-not-show-next"), !Core.settings.getBool("first-load"), b -> {
+                        Core.settings.put("first-load", !b);
+                    }).center();
+                    buttons.button("", this::hide).update(b -> {
+                        b.setDisabled(!canClose);
+                        b.setText(canClose ? text("m-got-it") : "[accent]" + Math.floor(leave / 60) + text("m-seconds"));
+                    }).size(150f, 50f).center();
+                }
+            };
+            dialog.show();
+        }
+    }
 
+    public static void dialogShow(){
+        if(!mobile) {
+            if (show) return;
+            show = true;
+            if (Core.settings.getBool("first-load")) {
+                dialog();
+            }
+        }
     }
     @Override
     public void init() {
         super.init();
         ManyPlanetSystems.init();
+        HPLTeam.load();
+    }
+
+    public HPL(){
+        super();
+        if(!mobile) {
+            Events.on(EventType.ClientLoadEvent.class, e -> Time.runTask(100f, HPL::dialogShow));
+        }
+        Events.on(EventType.FileTreeInitEvent.class, e -> HPLSounds.load());
+
+        Log.info("Loaded ExampleJavaMod constructor.");
+        if(!headless){
+            Utils.init();
+        }
     }
 
     @Override
@@ -45,6 +92,7 @@ public class HPL extends Mod{
         HPLLoadouts.load();
         HPLPlanets.load();
         HPLSectorPreset.load();
+        HPLWheather.load();
         HPLTechTree.load();
     }
 }

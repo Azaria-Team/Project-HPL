@@ -10,7 +10,6 @@ import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Eachable;
 import arc.util.Tmp;
-import mindustry.annotations.Annotations;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
 import mindustry.entities.units.BuildPlan;

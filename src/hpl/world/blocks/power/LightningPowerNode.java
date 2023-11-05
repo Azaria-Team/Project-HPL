@@ -3,6 +3,7 @@ package hpl.world.blocks.power;
 import acontent.world.meta.*;
 import arc.*;
 import arc.graphics.*;
+import arc.graphics.g2d.TextureRegion;
 import arc.math.*;
 import arc.struct.*;
 import arc.util.*;
@@ -31,7 +32,6 @@ public class LightningPowerNode extends PowerNode {
     public float thresholdPerTile;
     public Effect lightningFx = HPLFx.lightning2;
     public Color lightningColor = HPLPal.lightningNodeColor;
-
     AStats aStats = new AStats();
 
     public LightningPowerNode(String name, int maxNodes) {

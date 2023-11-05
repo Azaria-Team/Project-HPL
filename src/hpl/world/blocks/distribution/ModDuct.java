@@ -6,8 +6,7 @@ import arc.math.geom.Geometry;
 import arc.math.geom.Point2;
 import arc.struct.Seq;
 import arc.util.Nullable;
-import hpl.content.HPLBlocks;
-import mindustry.content.Blocks;
+import hpl.content.blocks.HPLDistribution;
 import mindustry.entities.units.BuildPlan;
 import mindustry.input.Placement;
 import mindustry.world.Block;
@@ -25,8 +24,8 @@ public class ModDuct extends Duct {
     public void init(){
         super.init();
 
-        if(junctionReplacement == null) junctionReplacement = HPLBlocks.impulseJunction;
-        if(bridgeReplacement == null || !(bridgeReplacement instanceof DuctBridge)) bridgeReplacement = HPLBlocks.impulseBridge;
+        if(junctionReplacement == null) junctionReplacement = hpl.content.blocks.HPLDistribution.impulseJunction;
+        if(bridgeReplacement == null || !(bridgeReplacement instanceof DuctBridge)) bridgeReplacement = HPLDistribution.impulseBridge;
     }
 
     @Override

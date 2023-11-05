@@ -24,10 +24,11 @@ public class HPLItems {
         volcanicSerrid = new Item("volcanic-serrid", Color.valueOf("42373a")) {{
             cost = 1f;
         }};
-        ferbium = new Item("ferbium", Color.valueOf("87d7bf")) {{
+        ferbium = new Item("ferbium", Color.valueOf("847bb1")) {{
             cost = 1f;
+            hardness = 2;
         }};
-        superdenseAlloy = new Item("superdense-alloy", Color.valueOf("313442")) {{
+            superdenseAlloy = new Item("superdense-alloy", Color.valueOf("313442")) {{
             cost = 1f;
         }};
         ognium = new Item("ognium", Color.valueOf("5e3143")) {{

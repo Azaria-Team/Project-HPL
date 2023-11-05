@@ -5,13 +5,13 @@ import mindustry.type.Liquid;
 
 public class HPLLiquids {
     public static Liquid
-    oxylite, pinkie;
+            oxyliteLiq, pinkieLiq;
 
     public static void load() {
 
-        oxylite = new Liquid("oxylite", Color.valueOf("53ad99")) {{
+        oxyliteLiq = new Liquid("oxylite-liq", Color.valueOf("53ad99")) {{
             viscosity = 0.65f;
-            temperature = 0.3f;
+            heatCapacity = 0.3f;
         }}; //test
     }
 }
