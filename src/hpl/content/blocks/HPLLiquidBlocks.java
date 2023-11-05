@@ -31,7 +31,7 @@ public class HPLLiquidBlocks {
             liquidCapacity = 25f;
             liquidPressure = 1.1f;
             health = 300;
-            researchCostMultiplier = 3;
+            researchCostMultiplier = 0.3f;
             underBullets = true;
         }};
         liquidPipeJunction = new LiquidJunction("liquid-pipe-junction"){{
@@ -39,7 +39,7 @@ public class HPLLiquidBlocks {
             buildCostMultiplier = 3f;
             health = 320;
             ((Conduit)liquidPipe).junctionReplacement = this;
-            researchCostMultiplier = 1;
+            researchCostMultiplier = 0.3f;
             solid = false;
             underBullets = true;
         }};
@@ -48,7 +48,7 @@ public class HPLLiquidBlocks {
             requirements(Category.liquid, with(HPLItems.fors, 3, HPLItems.ferbium, 8));
             range = 5;
             hasPower = false;
-            researchCostMultiplier = 3;
+            researchCostMultiplier = 0.3f;
             underBullets = true;
             arrowSpacing = 6f;
 
@@ -59,7 +59,7 @@ public class HPLLiquidBlocks {
             requirements(Category.liquid, with(HPLItems.fors, 3, HPLItems.ferbium, 5));
             liquidCapacity = 35f;
             liquidPadding = 1.0f;
-            researchCostMultiplier = 3;
+            researchCostMultiplier = 0.3f;
             underBullets = true;
             solid = false;
         }};
@@ -69,7 +69,7 @@ public class HPLLiquidBlocks {
             liquidCapacity = 3545f;
             size = 2;
             liquidPadding = 1.0f;
-            researchCostMultiplier = 3;
+            researchCostMultiplier = 0.3f;
             underBullets = true;
         }};
     }

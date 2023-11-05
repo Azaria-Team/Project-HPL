@@ -33,12 +33,10 @@ public class HPLDistribution {
             requirements(Category.distribution, with(HPLItems.fors, 3));
             researchCost = with(HPLItems.fors, 15);
             speed = 16;
-            buildCostMultiplier = 4f;
             squareSprite = false;
         }};
         impulseSorter = new Sorter("impulse-sorter"){{
             requirements(Category.distribution, with(HPLItems.fors, 4));
-            buildCostMultiplier = 3f;
         }};
         impulseGate = new OverflowGate("impulse-gate"){{
             requirements(Category.distribution, with(HPLItems.fors, 6));
