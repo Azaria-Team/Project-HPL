@@ -2,13 +2,20 @@ package hpl;
 //SEX!
 import arc.Core;
 import arc.Events;
+import arc.scene.ui.ImageButton;
+import arc.scene.ui.layout.Table;
+import arc.scene.ui.layout.WidgetGroup;
 import arc.util.Log;
 import arc.util.Time;
 import hpl.content.blocks.HPLCoreRelatedBlocks;
 import hpl.utils.ManyPlanetSystems;
 import hpl.utils.Utils;
+import mindustry.Vars;
 import mindustry.game.EventType;
+import mindustry.game.Team;
+import mindustry.gen.Tex;
 import mindustry.mod.*;
+import mindustry.ui.Styles;
 import mindustry.ui.dialogs.BaseDialog;
 import hpl.content.*;
 
@@ -65,7 +72,6 @@ public class HPL extends Mod{
     public void init() {
         super.init();
         ManyPlanetSystems.init();
-        HPLTeam.load();
     }
 
     public HPL(){

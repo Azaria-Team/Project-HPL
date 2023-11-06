@@ -5,6 +5,7 @@ import hpl.content.HPLBlocks.*;
 import hpl.content.blocks.HPLCoreRelatedBlocks;
 import hpl.maps.generators.AurionaPlanetGenerator;
 import mindustry.content.*;
+import mindustry.game.Team;
 import mindustry.graphics.g3d.*;
 import mindustry.type.*;
 
@@ -71,10 +72,10 @@ public class HPLPlanets {
             orbitSpacing = 10;
 
             allowLaunchToNumbered = false;
-            allowWaves = true;
-            allowWaveSimulation = true;
-            allowSectorInvasion = true;
-            allowLaunchSchematics = false;
+            //allowWaves = true;
+            //allowWaveSimulation = true;
+            //allowSectorInvasion = true;
+            //allowLaunchSchematics = false;
             iconColor = Color.valueOf("24b95a");
             atmosphereColor = Color.valueOf("24b95a");
 			defaultCore = HPLCoreRelatedBlocks.coreLegion;
@@ -92,7 +93,7 @@ public class HPLPlanets {
           //  hiddenItems.addAll(Items.serpuloItems).removeAll(aurionaItems);
             //hiddenItems.addAll(Items.serpuloItems).addAll(Items.erekirItems).addAll(Items.erekirOnlyItems).removeAll(aurionaItems);
             ruleSetter = r -> {
-                r.waveTeam = HPLTeam.testteam;
+                r.waveTeam = Team.green;
                 r.placeRangeCheck = false;
                 r.showSpawns = true;
                 r.fog = true;
