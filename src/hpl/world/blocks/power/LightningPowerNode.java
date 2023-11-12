@@ -30,8 +30,8 @@ public class LightningPowerNode extends PowerNode {
 
     // minimal energy delta per tile required for lightning
     public float thresholdPerTile;
-    public Effect lightningFx = HPLFx.lightning2;
-    public Color lightningColor = HPLPal.lightningNodeColor;
+    public Effect lightningFx = AZFx.lightning2;
+    public Color lightningColor = AZPal.lightningNodeColor;
     AStats aStats = new AStats();
 
     public LightningPowerNode(String name, int maxNodes) {
@@ -44,7 +44,7 @@ public class LightningPowerNode extends PowerNode {
         update = true;
         stats = aStats.copy(stats);
         if(maxNodes == 0) configurable = false;
-        laserColor2 = HPLPal.lightningNodeColor;
+        laserColor2 = AZPal.lightningNodeColor;
     }
 
     @Override
@@ -100,19 +100,20 @@ public class LightningPowerNode extends PowerNode {
             energyToSet[0] = thisStored; // include "this" node
 
             StringBuilder debugSb = new StringBuilder();
-            debugSb.append(this.id + ": pos=" + x + "|" + y +
+            /*debugSb.append(this.id + ": pos=" + x + "|" + y +
                                 "; power=" + thisStored + "/" + thisCap +
                                 System.lineSeparator());
+             */
             Vars.indexer.eachBlock(this, lightningRange, other -> {
                 if (!other.isValid() || !other.isAdded() || other == this ||
                     !(other instanceof LightningPowerNodeBuild)) return false;
 
                 float powerDelta = thisStored - powerStored(other);
                 float requiredDelta = thresholdPerTile * Mathf.len(other.x - x, other.y - y);
-                debugSb.append("other at=" + other.x + "|" + other.y +
+               /* debugSb.append("other at=" + other.x + "|" + other.y +
                                 "; power=" + powerStored(other) + "/" + powerCapacity(other) +
                                 "; diff=" + powerDelta + "/" + requiredDelta +
-                                System.lineSeparator());
+                                System.lineSeparator());*/
                 return powerDelta > requiredDelta;
             }, b -> {
                 nodes.add((LightningPowerNodeBuild)b);
@@ -121,32 +122,36 @@ public class LightningPowerNode extends PowerNode {
 
             if(!nodes.isEmpty()) {
                 energyToSet[0] /= nodes.size + 1; // include "this" node
-                debugSb.append("total nodes=" + (nodes.size+1) +
+                /*debugSb.append("total nodes=" + (nodes.size+1) +
                         "; target energy=" + energyToSet[0] +
                         System.lineSeparator());
+
+                 */
                 for(LightningPowerNodeBuild node : nodes) {
                     if(!node.isValid()) continue;
                     float capacity = powerCapacity(node), stored = powerStored(node);
                     float toSet = Math.min(capacity, energyToSet[0]); // don't "overcharge" other node
                     float toGive = toSet - stored;
-                    debugSb.append("other at=" + node.x + "|" + node.y +
+                    /*debugSb.append("other at=" + node.x + "|" + node.y +
                             "; power=" + stored + "/" + capacity +
                             "; toSet=" + toSet +
                             "; toGive=" + toGive);
+
+                     */
                     if(toSet <= stored) {
                         debugSb.append(System.lineSeparator());
                         continue; // don't decrease amount of energy in other node
                     }
-                    debugSb.append(" - give!" + System.lineSeparator());
+                   /* debugSb.append(" - give!" + System.lineSeparator());*/
 
                     node.power.status += toGive / capacity;
                     power.status -= toGive / thisCap;
 
-                    HPLFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
+                    AZFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
                 }
                 nodes.clear();
             }
-            Log.warn(debugSb.toString());
+            //Log.warn(debugSb.toString());
         }
 
         @Override
