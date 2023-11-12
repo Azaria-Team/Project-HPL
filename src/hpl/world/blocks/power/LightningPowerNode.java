@@ -30,8 +30,8 @@ public class LightningPowerNode extends PowerNode {
 
     // minimal energy delta per tile required for lightning
     public float thresholdPerTile;
-    public Effect lightningFx = AZFx.lightning2;
-    public Color lightningColor = AZPal.lightningNodeColor;
+    public Effect lightningFx = HPLFx.lightning2;
+    public Color lightningColor = HPLPal.lightningNodeColor;
     AStats aStats = new AStats();
 
     public LightningPowerNode(String name, int maxNodes) {
@@ -44,7 +44,7 @@ public class LightningPowerNode extends PowerNode {
         update = true;
         stats = aStats.copy(stats);
         if(maxNodes == 0) configurable = false;
-        laserColor2 = AZPal.lightningNodeColor;
+        laserColor2 = HPLPal.lightningNodeColor;
     }
 
     @Override
@@ -147,7 +147,7 @@ public class LightningPowerNode extends PowerNode {
                     node.power.status += toGive / capacity;
                     power.status -= toGive / thisCap;
 
-                    AZFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
+                    HPLFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
                 }
                 nodes.clear();
             }
