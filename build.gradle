@@ -73,11 +73,10 @@ task jarAndroid{
     }
 }
 
-
 jar{
-    archiveFileName = "${project.archivesBaseName}Desktop.jar"
+    archiveFileName = "${base.archivesBaseName}Desktop.jar"
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
+    
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
     }
@@ -95,7 +94,7 @@ jar{
 task deploy(type: Jar){
     dependsOn jarAndroid
     dependsOn jar
-    archiveFileName = "${project.archivesBaseName}.jar"
+    archiveFileName = "${base.archivesBaseName}.jar"
 
     from{ [zipTree("$buildDir/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$buildDir/libs/${project.archivesBaseName}Android.jar")] }
 
