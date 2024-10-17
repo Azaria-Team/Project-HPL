@@ -19,7 +19,7 @@ jobs:
         run: |
           sed -i 's/\r//' ./gradlew
           chmod +x ./gradlew
-          ./gradlew clean deploy -Pcommit=$(git rev-parse --short "$GITHUB_SHA")
+          ./gradlew clean dex -Pcommit=$(git rev-parse --short "$GITHUB_SHA")
       - name: Upload built jar file
         uses: actions/upload-artifact@v3
         with:
